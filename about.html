@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #161623;
+            min-height: 100vh;
+        }
+        
+        .header {
+            width: 100%;
+            background-color: rgb(13, 17, 27);
+        }
+        
+        .header ul {
+            text-align: center;
+        }
+        
+        .header ul li {
+            list-style: none;
+            display: inline-block;
+        }
+        
+        .header ul li a {
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 17px;
+            font-family: 'Raleway', sans-serif;
+            Letter-spacing: 2px;
+            font-weight: 600;
+            padding: 25px;
+            transition: all ease 0.15s;
+        }
+        
+        .header ul li a:hover {
+            background-color: #47465085
+        }
+        
+        section {
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .container .card {
+            position: relative;
+            width: 300px;
+            height: 460px;
+            background-color: rgba(255, 255, 255, 0.05);
+            margin: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .container .card .content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: .5;
+            transition: 0.3s;
+        }
+        
+        .container .card:hover .content {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+        
+        .container .card .content .imgBx {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid rgba(0, 0, 0, 0.2)
+        }
+        
+        .container .card .content .imgBx img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .container .card .content .contentBx h3 {
+            font-family: 'Raleway', sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 20px 0 10px;
+            line-height: 1.1em;
+        }
+        
+        .container .card .content .contentBx h3 span {
+            position: absolute;
+            font-size: 16px;
+            padding: 7px;
+            font-weight: 300;
+            text-align: center;
+            align-items: center;
+            font-family: 'Dongle', sans-serif;
+        }
+        
+        .container .card .socials {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+        }
+        
+        .container .card .socials li {
+            list-style: none;
+            margin: 0 10px;
+            transform: translateY(40px);
+            transition: 0.3s;
+            transition-delay: calc(0.1s * var(--i));
+            opacity: 0px;
+        }
+        
+        .container .card .socials li:hover {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        
+        .container .card .socials li a {
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        footer {
+            position: relative;
+            background-color: #10131d;
+            width: 100%;
+            color: white;
+            height: 11vh;
+            bottom: 0;
+        }
+        
+        footer h4 {
+            font-family: 'Karla', sans-serif;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        footer h6 {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            font-size: 9px;
+            opacity: 0.7;
+        }
+        
+        .socials {
+            text-align: center;
+            list-style: none;
+        }
+        
+        .socials a {
+            padding: 4px;
+            color: white;
+        }
+        
+        span {
+            color: rgb(252, 255, 61);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="newsample.html">HOME</a></li>
+            <li><a href="t.html">TEST</a></li>
+            <li>
+                <a href="about.html">ABOUT</a>
+            </li>
+        </ul>
+    </div>
+    <section>
+        <div class="container">
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="{{ url_for('static', filename='swastik.jpeg') }}">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Swastik Mukherjee<br><span>&emsp;&emsp;&nbsp;Backend Developer</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="{{ url_for('static', filename='yudhajit.jpeg') }}">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Yudhajit Ghosh<br><span>&nbsp;&nbsp;&nbsp;Frontend Developer</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="{{ url_for('static', filename='kushaj4.jpg') }}">
+                    </div>
+                    <div class="contentBx">
+                        <h3>Kushaj Mallick<br><span>&nbsp;&nbsp;Full Stack Developer</span></h3>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+    <footer>
+        <p>
+            <br>
+            <h4>SKY <span>PROCTOR</span></h4>
+
+            <h6>A neccesary tool for the future</h6>
+        </p>
+        <br>
+        <ul class="socials">
+            <li>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class=" fab fa-linkedin-in "></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
+
+</html>
+
+</html>

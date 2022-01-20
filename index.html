@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Registration</title>
+</head>
+
+<style>
+    @import url(" https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&display=swap ");
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mainbody {
+        position: relative;
+        max-width: 430px;
+        width: 100%;
+        background: #fff;
+        padding: 34px;
+        border-radius: 6px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .mainbody h2 {
+        position: relative;
+        font-size: 32px;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        color: #333;
+    }
+    
+    .mainbody form {
+        margin-top: 75px;
+    }
+    
+    .mainbody form .input-box {
+        height: 75px;
+        width: 400px;
+        margin: 28px 0;
+    }
+    
+    form .input-box input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding: 0 15px;
+        font-size: 17px;
+        font-weight: 400;
+        color: #333;
+        border: 1.5px solid #bdb6b6;
+        border-bottom-width: 4px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .input-box input:focus,
+    .input-box input:valid {
+        border-color: #9f2ce2;
+    }
+    
+    .butt {
+        width: 434px;
+        height: 75px;
+        border: none;
+        color: white;
+        background-color: #9f2ce2;
+        border-radius: 10px;
+        box-shadow: inset 0 0 0 0#e930bb;
+        transition: ease-out 0.3s;
+        font-size: 1.16rem;
+        outline: none;
+    }
+    
+    .butt:hover {
+        box-shadow: inset 434px 0 0 0 #e645d0;
+        cursor: pointer;
+        color: rgb(211, 211, 211);
+    }
+</style>
+
+<body style="background-color: #232431; font-family: 'Be Vietnam Pro', sans-serif; ">
+    <div class="mainbody">
+        <h2>Registration</h2>
+        <form action="newsample.html" method="POST">
+            <div class="input-box "><input type="text " placeholder="Enter ID" name="id" required></div>
+            <div class="input-box "><input type="text " placeholder="Enter your name" name="name" required></div>
+            <div class="input-box "><input type="email " placeholder="Enter your email" required></div>
+            <div class="input-box ">
+                <input type="password" placeholder="Enter password" id="pwd" required></div>
+            <div class=" button ">
+                <button class="butt" type="submit ">SIGN UP</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+
+
+</html>

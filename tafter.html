@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        width: 100%;
+        height: 1390px;
+    }
+    
+    footer {
+        position: absolute;
+        background-color: rgb(13, 17, 27);
+        width: 100%;
+        color: white;
+        height: 20vh;
+        bottom: 0;
+        top: 1390px;
+    }
+    
+    span {
+        color: rgb(252, 255, 61);
+    }
+    
+    footer h4 {
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    footer h6 {
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        font-size: 9px;
+        opacity: 0.7;
+    }
+    
+    .socials {
+        text-align: center;
+        list-style: none;
+    }
+    
+    .socials a {
+        padding: 4px;
+        color: rgb(243, 230, 230);
+    }
+    
+    .rightside {
+        padding: 15px 10px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .rightside .group {
+        padding: 5px 50px;
+        margin: 5px;
+    }
+    
+    .leftside {
+        padding: 15px 10px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .leftside .group {
+        padding: 5px 50px;
+        margin: 5px;
+    }
+    
+    input[type="checkbox"] {
+        display: none;
+    }
+    
+    label {
+        position: relative;
+    }
+    
+    label::before {
+        content: "";
+        background-image: url("{{ url_for('static', filename='img8.png') }}");
+        background-position: center;
+        background-size: contain;
+        width: 18.5px;
+        height: 19.9px;
+        position: absolute;
+        left: -39px;
+        top: 3.8px;
+        transform: scale(0) rotateZ(180deg);
+        transition: all 0.289s cubic-bezier(0.54, 0.01, 0, 1.49);
+    }
+    
+    input[type="checkbox"]:checked+label::before {
+        transform: scale(1) rotateZ(0deg);
+    }
+    
+    label::after {
+        content: "";
+        border: 2px solid #d1bbd3;
+        width: 20px;
+        height: 21px;
+        position: absolute;
+        left: -40px;
+        top: 3px;
+        border-radius: 50%;
+    }
+    
+    .group {
+        color: white;
+    }
+    
+    h2 {
+        margin: 5px 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        color: white;
+        padding-top: 10px;
+        border-left: 2px solid #e6d930;
+        border-left-style: ridge;
+        padding-left: 12px;
+    }
+    
+    .vertical {
+        border-left: .5px dotted rgb(224, 219, 219, .7);
+        height: 1000px;
+        top: 70.7px;
+        position: absolute;
+        left: 50%;
+    }
+    
+    h3 {
+        position: static;
+        left: 500px;
+        margin: 5px 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        color: white;
+        padding-left: 787px;
+        bottom: 500px;
+    }
+    
+    .leftside,
+    .rightside {
+        height: 1300px;
+        width: 100%;
+    }
+    
+    .leftside {
+        background: rgb(2, 7, 41);
+    }
+    
+    .rightside {
+        background: rgb(2, 7, 41);
+    }
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .header {
+        width: 100%;
+        background-color: rgb(13, 17, 27);
+    }
+    
+    .header ul {
+        text-align: center;
+    }
+    
+    .header ul li {
+        list-style: none;
+        display: inline-block;
+    }
+    
+    .header ul li a {
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 17px;
+        font-family: 'Raleway', sans-serif;
+        Letter-spacing: 2px;
+        font-weight: 600;
+        padding: 25px;
+        transition: all ease 0.15s;
+    }
+    
+    .header ul li a:hover {
+        background-color: #47465085
+    }
+    
+    .group {
+        color: white;
+    }
+    
+    .butt {
+        font-family: 'Raleway', sans-serif;
+        position: absolute;
+        left: 500px;
+        text-align: center;
+        width: 150px;
+        height: 50px;
+        border: none;
+        color: white;
+        background-color: #9f2ce2;
+        border-radius: 20px;
+        box-shadow: inset 0 0 0 0#e930bb;
+        transition: ease-out 0.5s;
+        font-size: 1.1rem;
+        outline: none;
+    }
+    
+    .butt:hover {
+        font-family: 'Raleway', sans-serif;
+        box-shadow: inset 434px 0 0 0 #e645d0;
+        cursor: pointer;
+        color: rgb(211, 211, 211);
+    }
+    
+    .correct1,
+    .correct2,
+    .correct3,
+    .correct4 {
+        position: absolute;
+        left: 400px;
+        color: white;
+    }
+    
+    .correct1,
+    .correct5 {
+        top: 150px;
+    }
+    
+    .correct2 {
+        top: 405px;
+    }
+    
+    .correct3 {
+        top: 640px;
+    }
+    
+    .correct4 {
+        top: 935px;
+    }
+    
+    .correct5,
+    .correct6,
+    .correct7,
+    .correct8 {
+        position: absolute;
+        left: 500px;
+        color: white;
+    }
+    
+    .correct6 {
+        top: 400px;
+    }
+    
+    .correct7 {
+        top: 660px;
+    }
+    
+    .correct8 {
+        left: 500px;
+        top: 990px;
+    }
+    
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+        color: inherit;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="newsample.html">HOME</a></li>
+            <li><a href="t.html">TEST</a></li>
+            <li>
+                <a href="about.html">ABOUT</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row no-gutters">
+        <div class="col no-gutters">
+            <div class="leftside">
+
+                <pre><h2>"When I was writing down the lyrics, I kept in mind all the English words like I, you, me, how, why,
+cow. I just framed them into sentences and that’s how I came up with this song.” What song?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="a">
+                    <label for="a" style="font-size:16px;">Kolaveri Di</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="b">
+                    <label for="b" style="font-size:16px;">Tum Hi Ho</label>
+
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="c ">
+                    <label for="c " style="font-size:16px;">Channa Mereya</label>
+                </div>
+                <br>
+
+                <div class="correct1">
+                    <p>Correct answer: <span>Kolaveri Di</span></p>
+                </div>
+                <pre><h2>Which billion-dollar company today was originally called "Cadabra" but was changed in 1994 
+shortly after being misidentified by lawyers as "cadavers"?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="d">
+                    <label for="d" style="font-size:16px;">Match.com</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="e ">
+                    <label for="e " style="font-size:16px;">Amazon</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="f ">
+                    <label for="f " style="font-size:16px;">General Motors</label>
+                </div>
+                <div class="correct2">
+                    <p>Correct answer: <span>Amazon</span></p>
+                </div>
+                <br>
+
+                <pre><h2>What is popularly dubbed as the "most iconic mask in cinematic history"?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="g">
+                    <label for="h" style="font-size:16px;">'Scream' mask</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="i "> <label for="i " style="font-size:16px;">'Guy Fawkes' mask</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="j ">
+                    <label for="j " style="font-size:16px;">'Michael Myers' mask</label>
+                </div>
+                <div class="correct3">
+                    <p>Correct answer: <span>'Guy Fawkes' mask</span></p>
+                </div>
+                <br>
+
+                <pre><h2>"The game of love, we intimately know -
+its laws and maxims mastered by our hearts;
+I pledge these vows, most earnestly express'd,
+that never shall I vacate from thy side, nor shall I disappoint you hence,"
+This is a "shakespearean sonnet" version of a famous 80's hit song. Identify the song.</pre>
+                </h2>
+
+                <div class="group">
+                    <input type="checkbox" id="k">
+                    <label for="k">"How Deep is Your Love" by Bee Gees</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="l">
+                    <label for="l">"Never Gonna Give You Up" by Rick Astley</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="m">
+                    <label for="m">"This is a Man's World" by James Brown</label>
+                </div>
+
+                <div class="correct4">
+                    <pre> <p style="color:white;font-family: 'Montserrat', sans-serif;font-size:16px;">Correct answer: <span>"Never Gonna Give You Up" 
+by Rick Astley</span></p></pre>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="col no-gutters">
+            <div class="rightside ">
+
+
+
+
+                <pre><h2>What, popularly called a "Bemusement Park" was launched in England in 2015 and dubbed by 
+many to be "a family park unsuitable for children"?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="n">
+                    <label for="n" style="font-size:16px;">Damnation Park</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="o ">
+                    <label for="o " style="font-size:16px;">Termination Island</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="p ">
+                    <label for="p " style="font-size:16px;">Dismaland</label>
+                </div>
+
+                <div class="correct5">
+                    <p>Correct answer: <span>Dismaland</span></p>
+                </div>
+
+                <br>
+
+                <pre><h2>What is popularly dubbed as the "most iconic mask in cinematic history"?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="q">
+                    <label for="q" style="font-size:16px;">'Scream' mask</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="r ">
+                    <label for="r " style="font-size:16px;">'Guy Fawkes' mask</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="s ">
+                    <label for="s " style="font-size:16px;">'Michael Myers' mask</label>
+                </div>
+
+                <div class="correct6">
+                    <p>Correct answer: <span>xd</span></p>
+                </div>
+                <br>
+
+
+                <pre><h2>During an interview as a POW during the Vietnam War, Admiral Jeremiah Denton blinked a 
+certain word in Morse code on live television being broadcasted worldwide, to send a secret message 
+about his mistreatment to the US. What word did he blink?</h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="t">
+                    <label for="t" style="font-size:16px;">S-E-N-D H-E-L-P</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="u ">
+                    <label for="u " style="font-size:16px;">T-O-R-T-U-R-E</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="v ">
+                    <label for="v " style="font-size:16px;">P-A-I-N</label>
+                </div>
+
+                <div class="correct7">
+                    <p>Correct answer: <span>T-O-R-T-U-R-E</span></p>
+                </div>
+                <br>
+
+                <pre><h2>"Though wise men at their end know dark is right,
+Because their words had forked no lighting, they
+___ ____ ____ _____ ____." 
+Identify this iconic line from Dylan Thomas' poem, which was famous for being used in the
+sci-fi film "Interstellar".
+                </h2></pre>
+
+
+                <div class="group">
+                    <input type="checkbox" id="w">
+                    <label for="w" style="font-size:16px;">"Know love is the one thing that transcends time and space."</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="x ">
+                    <label for="x " style="font-size:16px;">"believe mankind’s next step will be their greatest."</label>
+                </div>
+
+                <div class="group">
+                    <input type="checkbox" id="y ">
+                    <label for="y " style="font-size:16px;">"do not go gentle into that good night."</label>
+                </div>
+
+                <div class="correct8">
+                    <pre><p style="color:white;font-family: 'Montserrat', sans-serif;font-size:16px;">Correct answer: <span>"do not go gentle 
+into that good night."</span></p></pre>
+
+                </div>
+                <br>
+                <BR>
+                <br>
+                <div class="button">
+                    <button class="butt" type="submit"><a href="newsample.html">HOME</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <p>
+            <br>
+            <h4>SKY <span>PROCTOR</span></h4>
+
+            <h6>A neccesary tool for the future</h6>
+        </p>
+        <br>
+        <ul class="socials">
+            <li>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-twitch"></i></a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
